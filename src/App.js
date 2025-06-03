@@ -8,7 +8,6 @@ import BlogPost from './BlogPost.js';
 
 const App = () => {
   // State management
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [scrollY, setScrollY] = useState(0);
@@ -218,28 +217,28 @@ const App = () => {
 
           {/* Navigation */}
           <nav className={`navbar ${scrollY > 50 ? 'scrolled' : ''}`}>
-  <div className="nav-container">
-    <div className="nav-content">
-      <div className="logo-section">
-        <a href="#" className="logo-icon" aria-label="aimode.studio home">
-          <Brain className="brain-icon" aria-hidden="true" />
-        </a>
-        <span className="logo-text">aimode.studio</span>
-      </div>
-      
-      {/* Only Desktop Navigation with Theme Toggle */}
-      <div className="desktop-nav">
-        <button
-          onClick={toggleTheme}
-          className="theme-toggle"
-          aria-label={`Switch to ${currentTheme === 'dark' ? 'light' : 'dark'} mode`}
-        >
-          {currentTheme === 'dark' ? '☀️' : '🌙'}
-        </button>
-      </div>
-    </div>
-  </div>
-</nav>
+            <div className="nav-container">
+              <div className="nav-content">
+                <div className="logo-section">
+                  <a href="#" className="logo-icon" aria-label="aimode.studio home">
+                    <Brain className="brain-icon" aria-hidden="true" />
+                  </a>
+                  <span className="logo-text">Arbaz Blogs</span>
+                </div>
+
+                {/* Only Desktop Navigation with Theme Toggle */}
+                <div className="desktop-nav">
+                  <button
+                    onClick={toggleTheme}
+                    className="theme-toggle"
+                    aria-label={`Switch to ${currentTheme === 'dark' ? 'light' : 'dark'} mode`}
+                  >
+                    {currentTheme === 'dark' ? '☀️' : '🌙'}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </nav>
 
           {/* Hero Section */}
           <header className="hero-section">
@@ -372,7 +371,7 @@ const App = () => {
                                 </div>
                                 <button
                                   className="read-more-btn"
-                                  onClick={() => handleOpenPost(featuredPost)}
+                                  onClick={() => handleOpenPost(post)}
                                 >
                                   <span>Read More</span>
                                   <ArrowRight size={16} className="arrow-icon" aria-hidden="true" />
@@ -481,7 +480,7 @@ const App = () => {
                       <div className="logo-icon">
                         <Brain className="brain-icon" aria-hidden="true" />
                       </div>
-                      <span className="logo-text">aimode.studio</span>
+                      <span className="logo-text">Arbaz Blogs</span>
                     </div>
                     <p className="footer-description">
                       Exploring the future of artificial intelligence, design, and human creativity through thoughtful content and innovative perspectives.
@@ -509,23 +508,20 @@ const App = () => {
                   <div className="footer-social">
                     <h4 className="footer-heading">Connect</h4>
                     <div className="social-links">
-                      <a href="#" className="social-link" aria-label="Twitter">
-                        <Twitter size={20} aria-hidden="true" />
-                      </a>
-                      <a href="#" className="social-link" aria-label="GitHub">
+                      <a href="https://github.com/arbazkhan-cs" className="social-link" aria-label="GitHub">
                         <Github size={20} aria-hidden="true" />
                       </a>
-                      <a href="#" className="social-link" aria-label="LinkedIn">
+                      <a href="https://www.linkedin.com/in/arbazkhan-cs" className="social-link" aria-label="LinkedIn">
                         <Linkedin size={20} aria-hidden="true" />
                       </a>
-                      <a href="#" className="social-link" aria-label="Email">
+                      <a href="arbazkhaan.cs@gmail.com" className="social-link" aria-label="Email">
                         <Mail size={20} aria-hidden="true" />
                       </a>
                     </div>
                   </div>
                 </div>
                 <div className="footer-bottom">
-                  <p>&copy; 2025 aimode.studio. All rights reserved.</p>
+                  <p>&copy; 2025 Arbaz Khan. All rights reserved.</p>
                 </div>
               </div>
             </div>

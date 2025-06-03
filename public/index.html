@@ -2,42 +2,150 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="blog-icon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="blog-icon.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Arbaz Blogs</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Arbaz Blogs - AI, Technology & Web Development Insights</title>
+    <meta name="description" content="Discover cutting-edge insights on AI, web development, technology trends, and programming tutorials. Expert articles on React, JavaScript, machine learning, and modern development practices." />
+    <meta name="keywords" content="AI blog, web development, technology blog, React tutorials, JavaScript, machine learning, programming, tech insights, developer resources, coding tutorials" />
+    <meta name="author" content="Arbaz Khan" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+    
+    <!-- Viewport and Theme -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="theme-color" content="#1f2937" />
+    <meta name="color-scheme" content="light dark" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.aimode.studio/" />
+    <meta property="og:title" content="Arbaz Blogs - AI, Technology & Web Development Insights" />
+    <meta property="og:description" content="Discover cutting-edge insights on AI, web development, technology trends, and programming tutorials. Expert articles on React, JavaScript, machine learning, and modern development practices." />
+    <meta property="og:image" content="https://www.aimode.studio/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Arbaz Blogs" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://www.aimode.studio/" />
+    <meta name="twitter:title" content="Arbaz Blogs - AI, Technology & Web Development Insights" />
+    <meta name="twitter:description" content="Discover cutting-edge insights on AI, web development, technology trends, and programming tutorials. Expert articles on React, JavaScript, machine learning, and modern development practices." />
+    <meta name="twitter:image" content="https://www.aimode.studio/og-image.jpg" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.aimode.studio/" />
+    
+    <!-- Icons and Manifest -->
+    <link rel="icon" href="./blog-icon.png" sizes="32x32" />
+    <link rel="icon" href="./blog-icon.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="./blog-icon.png" sizes="180x180" />
+    <link rel="mask-icon" href="./blog-icon.png" color="#1f2937" />
+    <link rel="manifest" href="./blog-icon.png" />
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    
+    <!-- DNS Prefetch for performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//images.unsplash.com" />
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Arbaz Blogs",
+      "url": "https://www.aimode.studio",
+      "logo": "https://www.aimode.studio/blog-icon.png",
+      "description": "Technology blog featuring AI, web development, and programming insights",
+      "founder": {
+        "@type": "Person",
+        "name": "Arbaz Khan"
+      },
+      "sameAs": [
+        "https://github.com/arbazkhan-cs",
+        "https://www.linkedin.com/in/arbazkhan-cs",
+        "https://www.instagram.com/arbazkhaan.cs/",
+        "https://www.facebook.com/profile.php?id=100009194652794"
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data - Website -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Arbaz Blogs",
+      "url": "https://www.aimode.studio",
+      "description": "Discover cutting-edge insights on AI, web development, technology trends, and programming tutorials",
+      "inLanguage": "en-US",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.aimode.studio/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Arbaz Khan"
+      }
+    }
+    </script>
+    
+    <!-- Alternative formats -->
+    <link rel="alternate" type="application/rss+xml" title="Arbaz Blogs RSS Feed" href="%PUBLIC_URL%/rss.xml" />
+    <link rel="alternate" type="application/atom+xml" title="Arbaz Blogs Atom Feed" href="%PUBLIC_URL%/atom.xml" />
+    
+    <!-- Humans.txt -->
+    <link rel="author" href="%PUBLIC_URL%/humans.txt" />
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    
+    <!-- Performance Hints -->
+    <link rel="preload" href="%PUBLIC_URL%/fonts/main.woff2" as="font" type="font/woff2" crossorigin />
+    
+    <!-- Google Analytics (replace with your tracking ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-499XDMQSYK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-499XDMQSYK');
+    </script>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <div style="padding: 20px; text-align: center; background: #f3f4f6; color: #374151;">
+        <h1>JavaScript Required</h1>
+        <p>You need to enable JavaScript to run this app and access all the amazing content on Arbaz Blogs.</p>
+        <p>Please enable JavaScript in your browser settings and refresh the page.</p>
+      </div>
+    </noscript>
+    
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link" style="position: absolute; top: -40px; left: 6px; background: #000; color: #fff; padding: 8px; text-decoration: none; z-index: 100; border-radius: 4px;">Skip to main content</a>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js')
+            .then(function(registration) {
+              console.log('SW registered: ', registration);
+            })
+            .catch(function(registrationError) {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
   </body>
 </html>

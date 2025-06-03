@@ -49,7 +49,6 @@ const BlogPost = ({ post, onBack, currentTheme, toggleTheme }) => {
       navigator.clipboard.writeText(url).then(() => {
         alert('Link copied to clipboard!');
       }).catch(() => {
-        // Fallback for older browsers
         const textArea = document.createElement('textarea');
         textArea.value = url;
         document.body.appendChild(textArea);
@@ -68,6 +67,56 @@ const BlogPost = ({ post, onBack, currentTheme, toggleTheme }) => {
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
+  // Function to render blog content dynamically
+  const renderBlogContent = () => {
+    // If the post has fullContent, use it; otherwise use the excerpt
+    const contentToRender = post.fullContent || post.content || post.excerpt;
+    
+    // Handle different content formats
+    if (Array.isArray(contentToRender)) {
+      // If it's an array of paragraphs
+      return contentToRender.map((paragraph, index) => (
+        <p key={index} className={`article-paragraph ${index === 0 ? 'first-paragraph' : ''}`}>
+          {paragraph}
+        </p>
+      ));
+    } else if (typeof contentToRender === 'string') {
+      // If it's a string, split by double newlines or use as is
+      return contentToRender.split('\n\n').map((paragraph, index) => (
+        <p key={index} className={`article-paragraph ${index === 0 ? 'first-paragraph' : ''}`}>
+          {paragraph}
+        </p>
+      ));
+    } else {
+      // Fallback content
+      return (
+        <div>
+          <p className="article-paragraph first-paragraph">
+            Welcome to this insightful article about {post.title.toLowerCase()}.
+          </p>
+          <p className="article-paragraph">
+            {post.excerpt}
+          </p>
+          <p className="article-paragraph">
+            This topic is particularly relevant in today's rapidly evolving technological landscape. 
+            As we continue to explore new frontiers in {post.category.toLowerCase()}, it's important 
+            to understand the implications and opportunities that emerge.
+          </p>
+          <p className="article-paragraph">
+            Through careful analysis and practical examples, we can better grasp the concepts 
+            that drive innovation in this field. The insights shared here aim to provide both 
+            theoretical understanding and actionable takeaways for readers.
+          </p>
+          <p className="article-paragraph">
+            As we move forward, these developments will continue to shape how we approach 
+            problems and create solutions. Stay tuned for more updates and deep dives into 
+            the fascinating world of {post.category.toLowerCase()}.
+          </p>
+        </div>
+      );
+    }
   };
 
   if (!post) {
@@ -112,7 +161,7 @@ const BlogPost = ({ post, onBack, currentTheme, toggleTheme }) => {
             <div className="blog-nav-right">
               <div className="logo-section">
                 <Brain className="brain-icon" />
-                <span className="logo-text">aimode.studio</span>
+                <span className="logo-text">Arbaz Blogs</span>
               </div>
               <button
                 onClick={toggleTheme}
@@ -202,7 +251,7 @@ const BlogPost = ({ post, onBack, currentTheme, toggleTheme }) => {
         </div>
       </header>
 
-      {/* Featured Image */}
+      {/* Featured Image - Now uses the actual post image */}
       <div className="blog-image-container">
         <div className="blog-image-wrapper">
           <img 
@@ -210,29 +259,26 @@ const BlogPost = ({ post, onBack, currentTheme, toggleTheme }) => {
             alt={`Featured image for ${post.title}`}
             className="blog-featured-image"
             onError={(e) => {
-              e.target.style.display = 'none';
+              // Fallback image or hide if image fails to load
+              e.target.src = 'https://via.placeholder.com/800x400/374151/f3f4f6?text=Article+Image';
             }}
           />
         </div>
       </div>
 
-      {/* Article Content */}
+      {/* Article Content - Now dynamic */}
       <main className="blog-content">
         <div className="blog-content-container">
           <article className="blog-article">
             <div className="article-body">
-              {post.content.split('\n\n').map((paragraph, index) => (
-                <p key={index} className={`article-paragraph ${index === 0 ? 'first-paragraph' : ''}`}>
-                  {paragraph}
-                </p>
-              ))}
+              {renderBlogContent()}
             </div>
             
-            {/* Tags */}
+            {/* Tags - Now uses actual post tags */}
             <div className="article-tags">
               <h4>Tags</h4>
               <div className="tags-list">
-                {post.tags.map((tag, index) => (
+                {(post.tags || []).map((tag, index) => (
                   <span key={index} className="article-tag">
                     #{tag}
                   </span>
@@ -241,7 +287,7 @@ const BlogPost = ({ post, onBack, currentTheme, toggleTheme }) => {
             </div>
           </article>
 
-          {/* Author Card */}
+          {/* Author Card - Now uses actual post author */}
           <div className="author-card">
             <div className="author-card-content">
               <div className="author-card-avatar">
@@ -250,7 +296,7 @@ const BlogPost = ({ post, onBack, currentTheme, toggleTheme }) => {
               <div className="author-card-info">
                 <h4 className="author-card-name">{post.author}</h4>
                 <p className="author-card-bio">
-                  Passionate writer and technologist exploring the intersection of AI, design, and human creativity.
+                  {post.authorBio || `Passionate writer and technologist exploring the intersection of AI, design, and human creativity.`}
                 </p>
               </div>
             </div>
